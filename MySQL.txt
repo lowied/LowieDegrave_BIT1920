@@ -1,0 +1,25 @@
+QUESTION4__________________________________________________
+
+SELECT gene_name, seq_region_end-seq_region_start AS length FROM gene ORDER BY length DESC LIMIT 1 OFFSET 2;
+
+
+
+QUESTION5___________________________________________________
+
+SELECT gene_name, count(exon_id) AS exon_count FROM gene JOIN transcript ON gene.gene_id=transcript.gene_id JOIN exon_transcript ON transcript.transcript_id = exon_transcript.transcript_id JOIN exon ON exon_transcript.exon_id = exon.exon_id GROUP BY exon.exon_id SORT BY exon_count LIMIT 1;
+
+
+
+QUESTION6____________________________________________________
+
+SELECT chromosome, count(gene_id) AS gene_count FROM gene WHERE gene_name LIKE "BRCA%" GROUP BY chromosome ORDER BY gene_count DESC LIMIT 1;
+
+SELECT chromosome, count(transcript.transcript_id) AS number_of_transcripts FROM gene JOIN transcript ON gene.gene_id = transcript.gene_id WHERE gene.chromosome = 13;
+
+
+
+QUESTION7___________________________________________________
+
+SELECT count(*) FROM exon;
+
+SELECT count(*) FROM exon_transcript;
