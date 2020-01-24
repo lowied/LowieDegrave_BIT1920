@@ -1,0 +1,3 @@
+QUESTION12
+
+curl 'http://rest.ensembl.org/map/cdna/rs499899635/100..300?' -H 'Content-type:application/json'
